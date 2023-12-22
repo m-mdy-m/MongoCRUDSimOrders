@@ -20,33 +20,30 @@ class User {
   async addToCart(product) {
     const db = getDb();
     if (!this.cart) {
-      this.cart = { items: [] };
+      this.cart = { Selected_Products: [] };
     }
-    const carts = this.cart.items;
-    const cartsIndex = carts.findIndex((item) => {
-      return item.prodId.toString() === product._id.toString();
+    const carts = this.cart.Selected_Products;
+    const cartsIndex = carts.findIndex((select) => {
+      return select.prodId.toString() === product._id.toString();
     });
-    console.log(cartsIndex);
-    let newQuantity = 1;
-    const upCart = [...carts];
+    let baseQty = 1;
+    let UpCart = [...carts];
     if (cartsIndex >= 0) {
-        newQuantity = carts[cartsIndex].qty +1
-        upCart[cartsIndex].qty = newQuantity
-    }else{
-        upCart.push({
-            prodId : new objectId(product._id),
-            qty : newQuantity
-        })
+      baseQty = carts[cartsIndex].qty + 1;
+      UpCart[cartsIndex].qty = baseQty;
+    } else {
+      UpCart.push({
+        prodId: new objectId(product._id),
+        qty: baseQty,
+      });
     }
     const updateCart = {
-        items : upCart
-    }
-    return await db
+      Selected_Products: UpCart,
+    };
+
+    return db
       .collection("users")
-      .updateOne(
-        { _id: new objectId(this._id) },
-        { $set: { cart: updateCart } }
-      );
+      .updateOne({ _id: new objectId(product._id) }, { cart: { updateCart } });
   }
 }
 
