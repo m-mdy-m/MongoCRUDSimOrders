@@ -1,0 +1,27 @@
+{
+  "name": "mongocrudsimorders",
+  "version": "1.0.0",
+  "description": "“A Node.js e-commerce practice app with Express, MongoDB, and EJS for simulating cart operations and mock order tracking.”",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m-mdy-m/MongoCRUDSimOrders.git"
+  },
+  "keywords": [
+    "expressjs",
+    "mongodb",
+    "nodejs",
+    "ejs",
+    "nodemon",
+    "body-parser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m-mdy-m/MongoCRUDSimOrders/issues"
+  },
+  "homepage": "https://github.com/m-mdy-m/MongoCRUDSimOrders#readme"
+}
