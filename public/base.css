@@ -11,3 +11,10 @@ body{
     box-sizing: border-box;
     background: linear-gradient(#000000d2,#000);
 }
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
