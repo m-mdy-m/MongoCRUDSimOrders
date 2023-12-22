@@ -1,0 +1,21 @@
+<body>
+  <div class="container">
+      <header class="header">
+          <nav class="navigation">
+            <li class="navigation__items">
+              <a href="/" class="navigation__items-link <%=  path==='/'? "active": '' %> ">Home</a>
+            </li>
+            <li class="navigation__items">
+              <a href="/add-product" class="navigation__items-link <%=  path==='/add-product'? "active": '' %> ">add product</a>
+            </li>
+            <li class="navigation__items">
+              <a href="/cart" class="navigation__items-link <%=  path==='/cart'? "active": '' %> ">CART</a>
+            </li>
+            <li class="navigation__items">
+              <a href="/orders" class="navigation__items-link <%=  path==='/orders'? "active": '' %> ">ORDERS</a>
+            </li>
+            <li class="navigation__items">
+              <a href="/dashboard" class="navigation__items-link<%= path==='/dashboard'? "active": '' %> ">DASHBOARD</a>
+            </li>
+          </nav>
+        </header>
