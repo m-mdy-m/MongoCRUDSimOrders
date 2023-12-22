@@ -2,7 +2,7 @@ const mongodb = require("mongodb");
 const getDb = require("../database/database").getDb;
 const objectId = mongodb.ObjectId;
 
-class People {
+class User {
   constructor(username, email, cart, id) {
     this.username = username;
     this.email = email;
@@ -11,11 +11,11 @@ class People {
   }
   async save() {
     const db = getDb();
-    return db.collection("people").insertOne(this);
+    return db.collection("users").insertOne(this);
   }
   static async findById(id) {
     const db = getDb();
-    return await db.collection("people").findOne({ _id: new objectId(id) });
+    return await db.collection("users").findOne({ _id: new objectId(id) });
   }
   async addToCart(product) {
     if (!this.cart) {
@@ -40,7 +40,7 @@ class People {
     };
     const db = getDb();
     return await db
-        .collection("people")
+        .collection("users")
         .updateOne(
             { _id: new objectId(this._id) },
             { $set: { cart: updateCart } }
@@ -48,4 +48,4 @@ class People {
 }
 }
 
-module.exports = People;
+module.exports = User;
