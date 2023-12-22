@@ -7,3 +7,11 @@ exports.getDashboard = async (req, res) => {
     products,
   });
 };
+exports.getEdit = async (req, res) => {
+    const id  = req.params.prodId
+    console.log('id =>', id);
+//   res.render("shop/product", {
+//     title: "editUser",
+//     path: req.path,
+//   });
+};
