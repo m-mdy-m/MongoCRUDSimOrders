@@ -19,3 +19,6 @@ exports.getEdit = async (req, res) => {
     products,
   });
 };
+exports.postEdit = async (req,res)=>{
+    
+}
