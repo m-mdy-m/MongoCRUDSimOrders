@@ -19,7 +19,8 @@ app.use(async (req, res, next) => {
     if (!user) {
       return res.redirect("/");
     }
-    req.user = new User(user.name, user.email);
+    req.user = new User(user.username, user.email,user._id);
+    console.log(' req.user.id =>',req.user._id);
     next();
   } catch (err) {
     console.log(err);

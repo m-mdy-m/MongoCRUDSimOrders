@@ -4,9 +4,10 @@ const objectId = mongodb.ObjectId
 
 
 class User {
-    constructor(username , email){
+    constructor(username , email,id){
         this.username = username
         this.email = email
+        this._id = id
     }
     async save(){
         const db = getDb()
