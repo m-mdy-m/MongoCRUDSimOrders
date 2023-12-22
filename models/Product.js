@@ -9,6 +9,10 @@ class Product {
         const db = getDb()
         return await db.collection("Product").insertOne(this)
     }
+    static fetchAll(){
+        const db = getDb()
+        return db.collection('Product').find().toArray()
+    }
 }
 
 module.exports = Product
