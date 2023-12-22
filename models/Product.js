@@ -7,7 +7,7 @@ class Product {
     }
     async save(){
         const db = getDb()
-        return await db.collection("Product").insetOne(this)
+        return await db.collection("Product").insertOne(this)
     }
 }
 
