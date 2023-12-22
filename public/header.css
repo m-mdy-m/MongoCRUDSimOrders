@@ -1,0 +1,29 @@
+.header {
+  width: 100%;
+  display: flex;
+}
+.navigation {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 1rem 0;
+}
+.navigation__items {
+  list-style: none;
+  font-family: sans-serif;
+}
+.navigation__items-link {
+  text-decoration: none;
+  font-family: sans-serif;
+  color: #1fb494be;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.navigation__items-link:hover {
+  color: #0be7b7fa;
+}
+.active {
+  color: #0be7b7fa;
+}
