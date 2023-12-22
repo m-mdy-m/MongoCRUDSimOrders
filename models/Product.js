@@ -2,7 +2,7 @@ const getDb = require("../database/database").getDb
 
 class Product {
     constructor(name , price){
-        this.name = price
+        this.name = name
         this.price = price
     }
     async save(){
