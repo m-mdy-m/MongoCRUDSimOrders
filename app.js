@@ -10,8 +10,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const homeRoutes = require("./routes/home");
 const shopRoutes = require('./routes/shop')
+const adminRoute = require("./routes/admin")
 app.use(homeRoutes);
 app.use(shopRoutes)
+app.use(adminRoute)
 
 const startPro = async()=>{
     try{
