@@ -15,3 +15,9 @@ exports.postAddProduct = async (req, res) => {
   console.log("create Product");
   res.redirect("/");
 };
+exports.postCart = async (req,res)=>{
+  const id = req.body.prodId
+  const products = Product.findById(id)
+  console.log(products);
+
+}
