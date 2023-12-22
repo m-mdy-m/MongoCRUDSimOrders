@@ -11,7 +11,6 @@ exports.getEdit = async (req, res) => {
   const editMode = req.query.edit;
   const id = req.params.prodId;
   const products = await Product.findById(id);
-  console.log("products =>", products.price);
   res.render("shop/add-product", {
     title: "editUser",
     path: req.path,
@@ -28,9 +27,8 @@ exports.postEdit = async (req, res) => {
   console.log("update user");
   res.redirect("/");
 };
-console.log('hi2');
+console.log("hi2");
 exports.deleteUser = async (req, res) => {
-  console.log("hi");
   const id = req.params.prodId;
   console.log(id);
 };
