@@ -16,12 +16,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(async (req, res, next) => {
   try {
     const user = await User.findById("65859b466ef84dc1adf01bc2");
-    console.log('user =>', user);
-    // if (!user) {
-    //   return res.redirect("/");
-    // }
-    // req.user = new User(user.name, user.email);
-    // next();
+    if (!user) {
+      return res.redirect("/");
+    }
+    req.user = new User(user.name, user.email);
+    next();
   } catch (err) {
     console.log(err);
   }
