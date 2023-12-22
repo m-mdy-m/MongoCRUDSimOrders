@@ -10,10 +10,12 @@ exports.getDashboard = async (req, res) => {
 exports.getEdit = async (req, res) => {
   const editMode = req.query.edit;
   const id = req.params.prodId;
-  console.log("id =>", id);
-  console.log("editMode =>", editMode);
-  res.render("shop/product", {
+  const products = await Product.findById(id);
+  console.log("products =>", products.price);
+  res.render("shop/add-product", {
     title: "editUser",
     path: req.path,
+    editMode,
+    products,
   });
 };

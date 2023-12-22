@@ -10,8 +10,8 @@
                 <h2> <%= prods.price  %> </h2>
             </div>
             <div class="status_buttons">
-                <a href="/edit-product/<% prods.id %>?edit=true" class="btn">EDIT</a>
-                <form action="/dashboard/<% prods.id %>">
+                <a href="/edit-product/<%= prods._id %>?edit=true" class="btn">EDIT</a>
+                <form action="/dashboard/<%= prods._id %>">
                     <button class="btn">DELETE</button>
                 </form>
             </div>

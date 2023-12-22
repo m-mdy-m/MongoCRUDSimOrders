@@ -5,14 +5,14 @@
     <main class="main">
         <form action="<% if (editMode) { %>/add-product<%}else {%> /edit-product <%} %>" method="POST" class="form">
             <div class="name_products">
-                <input type="text" name="name" placeholder="nameProduct..." value="<% if (editMode) { %> <%= prods.name  %> <%} %>  ">
-                <input type="number" name="price" placeholder="PriceProduct.." value="<% if (editMode) { %> <%= prods.price  %> <%} %> ">
+                <input type="text" name="name" placeholder="nameProduct..." value="<% if (editMode) {%><%=products.name%><%}%>">
+                <input type="number" name="price" placeholder="PriceProduct.." value="<% if (editMode) {%><%= products.price%><%}%>">
             </div>
             <div class="submitBtn">
                 <button type="submit" > <% if (editMode) {%> Update <%} else {%> Add Product <%}%></button>
             </div>
             <% if (editMode) { %>
-                <input type="hidden" value=" <% prods._id %>" name="prodId">
+                <input type="hidden" value="<%= products._id %>" name="prodId">
                 <% } %>
         </form>
     </main>
