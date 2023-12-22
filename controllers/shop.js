@@ -9,17 +9,16 @@ exports.getAddProducts = (req, res) => {
 exports.postAddProduct = async (req, res) => {
   const name = req.body.name;
   const price = req.body.price;
-  const userId = req.user._id
-  const product = await new Product(name, price,null,userId);
+  const userId = req.user._id;
+  const product = await new Product(name, price, null, userId);
   await product.save();
   console.log("create Product");
   res.redirect("/");
 };
-exports.postCart = async (req,res)=>{
-  const id = req.body.prodId
-  const products = await Product.findById(id)
-  const result = await req.user.addCart(products)
-  console.log('cart =>', result);
-  return res.redirect('/')
-
-}
+exports.postCart = async (req, res) => {
+  const id = req.body.prodId;
+  const product = await Product.findById(id);
+  const addCart = await req.user.addToCart(product);
+  console.log("add cart =>", addCart);
+  return res.redirect("/");
+};

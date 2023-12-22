@@ -13,18 +13,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static(path.join(__dirname, "public")));
-app.use(async (req, res, next) => {
-  try {
-    const user = await User.findById("65859b466ef84dc1adf01bc2");
-    if (!user) {
-      return res.redirect("/");
-    }
-    req.user = new User(user.username, user.email,user.cart,user._id);
-    next();
-  } catch (err) {
-    console.log(err);
-  }
-});
+// app.use(async (req, res, next) => {
+//   try {
+//     const user = await User.findById("65859b466ef84dc1adf01bc2");
+//     if (!user) {
+//       return res.redirect("/");
+//     }
+//     req.user = new User(user.username, user.email,user.cart,user._id);
+//     next();
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
 
 app.use(homeRoutes);
 app.use(shopRoutes);
