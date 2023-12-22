@@ -8,7 +8,9 @@ app.set("views", "views");
 app.use(express.static(path.join(__dirname, "public")));
 
 const homeRoutes = require("./routes/home");
+const shopRoutes = require('./routes/shop')
 app.use(homeRoutes);
+app.use(shopRoutes)
 
 app.listen(3000, () => {
   console.log("run server on port 3000");
