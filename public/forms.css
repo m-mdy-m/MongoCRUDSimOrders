@@ -1,11 +1,36 @@
 .form{
-    width: 150px;
-    height: 100px;
+    width: 350px;
+    height:400px;
     background-color: red;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .name_products{
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.name_products > *{
+    margin: 4px;
+    outline: none;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
 }
 .submitBtn{
-
+    margin-top: 1rem;
+}
+.submitBtn > *{
+    padding: 4px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.submitBtn >*:hover{
+    background-color: #ccc;
 }
