@@ -4,4 +4,6 @@ const adminControllers = require("../controllers/admin");
 
 route.get("/dashboard", adminControllers.getDashboard);
 
+
+
 module.exports = route;
