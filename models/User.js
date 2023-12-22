@@ -18,13 +18,35 @@ class User {
     return await db.collection("users").findOne({ _id: new objectId(id) });
   }
   async addToCart(product) {
-    const db = getDb()
+    const db = getDb();
     if (!this.cart) {
-        this.cart = {items : []}
+      this.cart = { items: [] };
     }
-    const carts = this.cart.items
-    console.log('carts =>', carts);
-    return await db.collection("users").updateOne({_id : new objectId(this._id)})
+    const carts = this.cart.items;
+    const cartsIndex = carts.findIndex((item) => {
+      return item.productId.toString() === product._id.toString();
+    });
+    console.log(cartsIndex);
+    let newQuantity = 1;
+    const upCart = [...carts];
+    if (cartsIndex >= 0) {
+        newQuantity = carts[cartsIndex].qty +1
+        upCart[cartsIndex].qty = newQuantity
+    }else{
+        upCart.push({
+            prodId : new objectId(product._id),
+            qty : newQuantity
+        })
+    }
+    const updateCart = {
+        items : upCart
+    }
+    return await db
+      .collection("users")
+      .updateOne(
+        { _id: new objectId(this._id) },
+        { $set: { cart: updateCart } }
+      );
   }
 }
 
