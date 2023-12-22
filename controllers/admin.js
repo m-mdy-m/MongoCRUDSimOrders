@@ -27,7 +27,6 @@ exports.postEdit = async (req, res) => {
   console.log("update user");
   res.redirect("/");
 };
-console.log("hi2");
 exports.deleteUser = async (req, res) => {
   const id = req.params.prodId;
   console.log(id);
