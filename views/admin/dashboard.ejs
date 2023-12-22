@@ -9,8 +9,8 @@
                 <h1> <%= prods.name  %> </h1>
                 <h2> <%= prods.price  %> </h2>
             </div>
-            <div>
-                <a href="/edit-products/<% prods.id %>?edit=true">EDIt</a>
+            <div class="status_buttons">
+                <a href="/edit-products/<% prods.id %>?edit=true" class="btn">EDIT</a>
                 <form action="/dashboard/<% prods.id %>">
                     <button class="btn">DELETE</button>
                 </form>

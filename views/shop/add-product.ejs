@@ -3,13 +3,13 @@
 </head>
 <%- include('../includes/header.ejs') %>
     <main class="main">
-        <form action="/add-product" method="POST" class="form">
+        <form action="<% if (editMode) { %>/add-product<%}else {%> /edit-product <%} %>" method="POST" class="form">
             <div class="name_products">
-                <input type="text" name="name" placeholder="nameProduct...">
-                <input type="number" name="price" placeholder="PriceProduct..">
+                <input type="text" name="name" placeholder="nameProduct..." value="<% if (editMode) { %> <%= prods.name  %> <%} %>  ">
+                <input type="number" name="price" placeholder="PriceProduct.." value="<% if (editMode) { %> <%= prods.price  %> <%} %> ">
             </div>
             <div class="submitBtn">
-                <button type="submit" >Add product</button>
+                <button type="submit" > <% if (editMode) {%> Update <%} else {%> Add Product <%}%></button>
             </div>
         </form>
     </main>
