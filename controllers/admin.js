@@ -20,5 +20,11 @@ exports.getEdit = async (req, res) => {
   });
 };
 exports.postEdit = async (req,res)=>{
-    
+    const id = req.body.prodId
+    const name = req.body.name
+    const price = req.body.price
+    const product = await new Product(name,price,id)
+    await product.save()
+    console.log('update user');
+    res.redirect('/')
 }

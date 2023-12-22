@@ -3,7 +3,7 @@
 </head>
 <%- include('../includes/header.ejs') %>
     <main class="main">
-        <form action="<% if (editMode) { %>/add-product<%}else {%> /edit-product <%} %>" method="POST" class="form">
+        <form action="<% if (editMode) { %>/edit-product<%}else {%>/add-product<%} %>" method="POST" class="form">
             <div class="name_products">
                 <input type="text" name="name" placeholder="nameProduct..." value="<% if (editMode) {%><%=products.name%><%}%>">
                 <input type="number" name="price" placeholder="PriceProduct.." value="<% if (editMode) {%><%= products.price%><%}%>">

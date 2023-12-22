@@ -5,13 +5,13 @@ class Product {
     constructor(name , price,id){
         this.name = name
         this.price = price
-        this._id = id
+        this._id = new objectId(id)
     }
     async save(){
         let dbUp;
         const db = getDb()
         if (this._id) {
-            dbUp = await db.collection("Product").updateOne({_id : new objectId(this._id)}, {$set : this})
+            dbUp = await db.collection("Product").updateOne({_id : this._id}, {$set : this})
         }else{
             dbUp = await db.collection("Product").insertOne(this)
         }
