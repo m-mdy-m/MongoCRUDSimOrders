@@ -10,6 +10,6 @@ exports.postAddProduct = async (req, res) => {
   const price = req.body.price;
   const product = await new Product(name, price);
   await product.save();
-  console.log(product);
-  res.redirect("/add-product");
+  console.log('create user');
+  res.redirect("/");
 };
