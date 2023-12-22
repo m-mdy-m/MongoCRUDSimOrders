@@ -19,12 +19,18 @@ exports.getEdit = async (req, res) => {
     products,
   });
 };
-exports.postEdit = async (req,res)=>{
-    const id = req.body.prodId
-    const name = req.body.name
-    const price = req.body.price
-    const product = await new Product(name,price,id)
-    await product.save()
-    console.log('update user');
-    res.redirect('/')
-}
+exports.postEdit = async (req, res) => {
+  const id = req.body.prodId;
+  const name = req.body.name;
+  const price = req.body.price;
+  const product = await new Product(name, price, id);
+  await product.save();
+  console.log("update user");
+  res.redirect("/");
+};
+console.log('hi2');
+exports.deleteUser = async (req, res) => {
+  console.log("hi");
+  const id = req.params.prodId;
+  console.log(id);
+};

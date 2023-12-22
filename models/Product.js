@@ -25,6 +25,10 @@ class Product {
         const db = getDb()
         return await db.collection("Product").findOne({_id : new objectId(id)})
     }
+    static async deleteById(id){
+        const db = getDb()
+        return await db.collection('Product').deleteOne({_id : new objectId(id)})
+    }
 }
 
 module.exports = Product
