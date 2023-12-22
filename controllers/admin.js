@@ -28,6 +28,7 @@ exports.postEdit = async (req, res) => {
   res.redirect("/");
 };
 exports.deleteUser = async (req, res) => {
+  console.log(req.params);
   const id = req.params.prodId;
   console.log(id);
 };
