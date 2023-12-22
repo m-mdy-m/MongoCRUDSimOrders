@@ -24,7 +24,7 @@ class User {
     }
     const carts = this.cart.items;
     const cartsIndex = carts.findIndex((item) => {
-      return item.productId.toString() === product._id.toString();
+      return item.prodId.toString() === product._id.toString();
     });
     console.log(cartsIndex);
     let newQuantity = 1;
