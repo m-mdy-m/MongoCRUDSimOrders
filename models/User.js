@@ -19,7 +19,6 @@ class User {
   }
   async addCart(product) {
     const db = getDb();
-    console.log('before =>',this.cart);
     if (!this.cart) {
       this.cart = { items: [] };
     }
