@@ -2,11 +2,11 @@ const getDb = require("../database/database").getDb
 const mongodb = require('mongodb')
 const objectId = mongodb.ObjectId
 class Product {
-    constructor(name , price,id,userId){
+    constructor(name , price,id){
         this.name = name
         this.price = price
         this._id = new objectId(id)
-        this.userId = userId
+        // this.userId = userId
     }
     async save(){
         let dbUp;
