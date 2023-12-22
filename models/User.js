@@ -18,22 +18,15 @@ class User {
     return await db.collection(" Users").findOne({ _id: new objectId(id) });
   }
   async addCart(product) {
-    const db = getDb()
+    const db = getDb();
+    console.log('before =>',this.cart);
     if (!this.cart) {
       this.cart = { items: [] };
     }
-    let baseQty = 1;
-    const update = [...this.cart.items];
-    console.log("update =>", update);
-    console.log("this.cart.items =>", this.cart.items);
-    update.push({
-      prodId: new objectId(product._id),
-      qty: baseQty,
-    });
-    const updateCart = {
-        items : update
-    }
-    return await db.collection('Users').updateOne({_id : new objectId(this._id)},{$set : {cart: updateCart}})
+    const productIndexCart = this.cart.items.findIndex(items =>{
+        console.log('item =>', items);
+    })
+    console.log('after =>',this.cart);
   }
 }
 
