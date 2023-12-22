@@ -10,3 +10,5 @@ class Product {
         return await db.collection("Product").insetOne(this)
     }
 }
+
+module.exports = Product
