@@ -22,9 +22,6 @@ class User {
     if (!this.cart) {
       this.cart = { items: [] };
     }
-    // const cartProductIndex = this.cart.items.findIndex(index =>{
-    //     console.log('index =>', index);
-    // })
     let baseQty = 1;
     const update = [...this.cart.items];
     console.log("update =>", update);
