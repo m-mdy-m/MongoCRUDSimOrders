@@ -53,6 +53,11 @@ class User {
     const prodId = carts.map(cart =>{
       return cart.prodId
     })
+    const products = await db.collection('Product').find({_id : {$in : prodId}}).toArray()
+    return products.map(product =>{
+      const qty = carts.find( p => p.prodId.toString() === product._id.toString()).qty
+      return {...product, qty:qty}
+    })
   }
 }
 
