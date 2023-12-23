@@ -22,30 +22,30 @@ exports.postCart = async (req, res) => {
   console.log("add cart =>", addCart);
   return res.redirect("/cart");
 };
-exports.getCart = async (req,res)=>{
+exports.getCart = async (req, res) => {
   const products = await req.user.getCart();
-	res.render("shop/cart", {
-		title: "Your Cart",
-		path: req.path,
-		products: products,
-	});
-}
-exports.deleteCart = async (req,res)=>{
-  const id = req.params.prodId
+  res.render("shop/cart", {
+    title: "Your Cart",
+    path: req.path,
+    products: products,
+  });
+};
+exports.deleteCart = async (req, res) => {
+  const id = req.params.prodId;
   console.log(id);
-  const deleteUser = await req.user.deleteCart(id)
-  console.log('deleteUser');
-  return res.redirect('/cart')
-}
-exports.postOrder = async (req,res)=>{
-  await req.user.addOrder()
-  return res.redirect('/cart')
-}
-exports.getOrder = async (req,res)=>{
-  const orders = await req.user.getOrder()
-  res.render('shop/order',{
-    title :"order",
-    path : req.path,
-    orders
-  })
-}
+  const deleteUser = await req.user.deleteCart(id);
+  console.log("deleteUser");
+  return res.redirect("/cart");
+};
+exports.postOrder = async (req, res) => {
+  await req.user.addOrder();
+  return res.redirect("/cart");
+};
+exports.getOrder = async (req, res) => {
+  const orders = await req.user.getOrder();
+  res.render("shop/order", {
+    title: "order",
+    path: req.path,
+    orders,
+  });
+};
