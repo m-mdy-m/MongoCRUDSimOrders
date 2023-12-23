@@ -15,7 +15,7 @@ app.set("views", "views");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(async (req, res, next) => {
   try {
-    const user = await User.findById("6585d0ba6ef84dc1adf01bc7");
+    const user = await User.findById("658672a3a3ce86883baef964");
     if (!user) {
       return res.redirect("/");
     }
