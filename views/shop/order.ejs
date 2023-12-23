@@ -1,0 +1,28 @@
+<%- include('../includes/base.ejs') %>
+<link rel="stylesheet" href="/home.css">
+</head>
+<%- include('../includes/header.ejs') %>
+<main class="main">
+    <% if (orders.length <= 0){ %>
+        <h1>Nothing there!</h1>
+        <% } else { %>
+            <ul>
+                <% orders.forEach(order =>{ %>
+                    <li>
+                        <h1># <%= order._id  %></h1>
+                        <ul>
+                            <% order.items.forEach(product => { %>
+                                <li><%= product.name  %> (<%= product.qty %>)</li>   
+                            <% }) %>
+                        </ul>
+                    </li>
+                <% }) %>
+            </ul>
+
+            <% } %>
+</main>
+<%- include('../includes/end.ejs') %>
+
+
+
+    
