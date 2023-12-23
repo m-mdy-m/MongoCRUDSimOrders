@@ -9,10 +9,10 @@
             <ul>
                 <% orders.forEach(order =>{ %>
                     <li>
-                        <h1># <%= order._id  %></h1>
+                        <h1 style="color: wheat; font-size: 20px; font-family: sans-serif;"># <%= order._id  %></h1>
                         <ul>
                             <% order.Product.forEach(product => { %>
-                                <li><%= product.name  %> (<%= product.qty %>)</li>   
+                                <li style="color: wheat;font-size: 20px; font-family: sans-serif;"><%= product.name  %> (<%= product.qty %>)</li>   
                             <% }) %>
                         </ul>
                     </li>
