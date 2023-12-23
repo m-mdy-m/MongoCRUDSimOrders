@@ -103,5 +103,12 @@ class User {
       console.log(error);
     }
   }
+  async getOrder() {
+    const db = getDb();
+    return await db
+      .collection("orders")
+      .find({ "user._id": new objectId(this._id) })
+      .toArray();
+  }
 }
 module.exports = User;

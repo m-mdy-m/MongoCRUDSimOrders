@@ -41,3 +41,11 @@ exports.postOrder = async (req,res)=>{
   await req.user.addOrder()
   return res.redirect('/cart')
 }
+exports.getOrder = async (req,res)=>{
+  const orders = await req.user.getOrder()
+  res.render('shop/order',{
+    title :"order",
+    path : req.path,
+    orders
+  })
+}
