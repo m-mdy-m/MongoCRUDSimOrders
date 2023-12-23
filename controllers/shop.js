@@ -37,3 +37,7 @@ exports.deleteCart = async (req,res)=>{
   console.log('deleteUser');
   return res.redirect('/cart')
 }
+exports.postOrder = async (req,res)=>{
+  await req.user.addOrder()
+  return res.redirect('/cart')
+}

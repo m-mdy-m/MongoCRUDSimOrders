@@ -79,5 +79,26 @@ class User {
         { $set: { cart: { Selected_Products: update } } }
       );
   }
+  async addOrder() {
+    const db = getDb();
+    const products = await this.getCart();
+    const order = await {
+      items: products,
+      user: {
+        _id: new objectId(this._id),
+        username: this.username,
+      },
+    };
+    try {
+      await db.collection("orders").insertOne(order);
+      this.cart = await { Selected_Products: [] };
+      await db.collection("users").updateOne(
+        {_id : new objectId(this._id)},
+        {$set : {cart : {Selected_Products : []}}}
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
 module.exports = User;

@@ -8,4 +8,5 @@ route.get('/cart', shopControllers.getCart)
 
 
 route.post('/cart/:prodId',shopControllers.deleteCart)
+route.post("/create-order", shopControllers.postOrder)
 module.exports = route;
