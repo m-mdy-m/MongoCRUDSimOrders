@@ -30,3 +30,7 @@ exports.getCart = async (req,res)=>{
 		products: products,
 	});
 }
+exports.deleteCart = async (req,res)=>{
+  const id = req.params.prodId
+  console.log(id);
+}

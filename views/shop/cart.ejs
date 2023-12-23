@@ -10,9 +10,8 @@
                 <h2> <%= prods.price  %> </h2>
                 <h1> <%= prods.qty  %> </h1>
             </div>
-            <form action="/cart" method="POST">
+            <form action="/cart/<% <%= prods._id %> %>" method="POST">
                 <button class="btn" type="submit">DeLete </button>
-                <input type="hidden" name="prodId" value="<%= prods._id %>">
             </form>
         <% }) %> 
         <div class="centered ">
