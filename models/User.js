@@ -48,16 +48,21 @@ class User {
       );
   }
   async getCart (){
-    const db = getDb()
+    const db = getDb();
     const carts = this.cart.Selected_Products;
-    const prodId = carts.map(cart =>{
-      return cart.prodId
-    })
-    const products = await db.collection('Product').find({_id : {$in : prodId}}).toArray()
-    return products.map(product =>{
-      const qty = carts.find( p => p.prodId.toString() === product._id.toString()).qty
-      return {...product, qty:qty}
-    })
+    const prodId = carts.map((prod) => {
+      return prod.prodId;
+    });
+    const products = await db
+      .collection("Product")
+      .find({ _id: { $in: prodId } }).toArray()
+    return products.map((product) => {
+      console.log("pro =>", product);
+      const qty = carts.find(
+        (i) => i.prodId.toString() === product._id.toString()
+      ).qty;
+      return { ...product, qty: qty };
+    });
   }
 }
 
