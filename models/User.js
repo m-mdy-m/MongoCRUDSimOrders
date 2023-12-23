@@ -64,9 +64,20 @@ class User {
       return { ...p, qty: qty };
     });
   }
-  async deleteCart (id){
-
+  async deleteCart(id) {
+    const db = getDb();
+    const carts = this.cart.Selected_Products;
+    const update = carts.filter((i) => {
+      console.log("i =>", i);
+      console.log("i.prodId =>", i.prodId);
+      return i.prodId.toString() !== id.toString();
+    });
+    return await db
+      .collection("users")
+      .updateOne(
+        { _id: new objectId(this._id) },
+        { $set: { cart: { Selected_Products: update } } }
+      );
   }
 }
-
 module.exports = User;

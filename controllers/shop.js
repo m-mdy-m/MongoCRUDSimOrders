@@ -33,4 +33,7 @@ exports.getCart = async (req,res)=>{
 exports.deleteCart = async (req,res)=>{
   const id = req.params.prodId
   console.log(id);
+  const deleteUser = await req.user.deleteCart(id)
+  console.log('deleteUser');
+  return res.redirect('/cart')
 }
