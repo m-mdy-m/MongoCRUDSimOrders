@@ -49,14 +49,13 @@ class User {
   }
   async getCart (){
     const db = getDb()
-    const carts = this.cart.Selected_Products;
-    const prodId = carts.map(cart =>{
-      return cart.prodId
+    const carts = this.cart.Selected_Products
+    const prodId = carts.map(prod =>{
+      return prod.prodId
     })
-    const products = await db.collection('Product').find({_id : {$in : prodId}}).toArray()
+    const products = await db.collection("Product").find({_id : {$in : prodId}})
     return products.map(product =>{
-      const qty = carts.find( p => p.prodId.toString() === product._id.toString()).qty
-      return {...product, qty:qty}
+      console.log('pro =>', product);
     })
   }
 }
