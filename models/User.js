@@ -51,7 +51,6 @@ class User {
     const db = getDb()
     const carts = this.cart.Selected_Products;
     const prodId = carts.map(cart =>{
-      console.log('cart =>', cart);
       return cart.prodId
     })
   }

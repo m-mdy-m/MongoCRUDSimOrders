@@ -3,6 +3,6 @@ const route = express.Router();
 const shopControllers = require("../controllers/shop");
 route.get("/add-product", shopControllers.getAddProducts);
 route.post('/add-product', shopControllers.postAddProduct)
-
 route.post('/cart',shopControllers.postCart)
+route.get('/cart', shopControllers.getCart)
 module.exports = route;

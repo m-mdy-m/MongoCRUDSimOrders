@@ -25,8 +25,8 @@ exports.postCart = async (req, res) => {
 exports.getCart = async (req,res)=>{
   const products = await req.user.getCart();
 	res.render("shop/cart", {
+		title: "Your Cart",
 		path: "/cart",
-		pageTitle: "Your Cart",
 		products: products,
 	});
 }
