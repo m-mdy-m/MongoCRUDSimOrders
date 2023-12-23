@@ -22,3 +22,11 @@ exports.postCart = async (req, res) => {
   console.log("add cart =>", addCart);
   return res.redirect("/");
 };
+exports.getCart = async (req,res)=>{
+  const products = await req.user.getCart();
+	res.render("shop/cart", {
+		path: "/cart",
+		pageTitle: "Your Cart",
+		products: products,
+	});
+}
