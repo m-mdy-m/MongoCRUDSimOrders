@@ -1,0 +1,30 @@
+<%- include('../includes/base.ejs') %>
+<link rel="stylesheet" href="/home.css">
+</head>
+<%- include('../includes/header.ejs') %>
+<main class="main">
+    <% if (products.length > 0) { %>
+        <% products.forEach(prods => { %>
+            <div class="ModalProducts">
+                <h1> <%= prods.name  %> </h1>
+                <h2> <%= prods.price  %> </h2>
+            </div>
+            <form action="/cart" method="POST">
+                <button class="btn" type="submit">DeLete </button>
+                <input type="hidden" name="prodId" value="<%= prods._id %>">
+            </form>
+        <% }) %> 
+        <div class="centered ">
+            <form action="/create-order" method="POST">
+                <button type="submit" class="btn">Order Now!</button>
+            </form>
+        </div>   
+    <% }else { %>
+    <h1 class="ModalEmpyProduct">no Products</h1>
+    <% }%>
+</main>
+<%- include('../includes/end.ejs') %>
+
+
+
+    
