@@ -43,7 +43,7 @@ class User {
     return db
       .collection("users")
       .updateOne(
-        { _id: new objectId(product._id) },
+        { _id: new objectId(this._id) },
         { $set: { cart: updateCart } }
       );
   }
