@@ -81,23 +81,26 @@ class User {
   }
   async addOrder() {
     const db = getDb();
-    const products = await this.getCart();
-    const order = await {
-      items: products,
+    const productsCart = await this.getCart();
+    console.log(productsCart);
+    const Order = {
+      Product: productsCart,
       user: {
         _id: new objectId(this._id),
-        username: this.username,
+        name: this.username,
       },
     };
     try {
-      await db.collection("orders").insertOne(order);
+      await db.collection("orders").insertOne(Order);
       this.cart = await { Selected_Products: [] };
-      await db.collection("users").updateOne(
-        {_id : new objectId(this._id)},
-        {$set : {cart : {Selected_Products : []}}}
-      );
-    } catch (err) {
-      console.log(err);
+      await db
+        .collection("users")
+        .updateOne(
+          { _id: new objectId(this._id) },
+          { $set: { cart: { Selected_Products: [] } } }
+        );
+    } catch (error) {
+      console.log(error);
     }
   }
 }
